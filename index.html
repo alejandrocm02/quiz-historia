@@ -245,7 +245,7 @@ h1 em{font-style:italic;color:var(--gold);}
   <header class="site-header">
     <div class="tag">Quiz cultural</div>
     <h1>Historia &amp; <em>Cultura</em><br>General</h1>
-    <p class="subtitle">10 preguntas · 15 segundos por pregunta</p>
+    <p class="subtitle">61 preguntas · 30 segundos por pregunta</p>
   </header>
 
   <!-- LOGIN -->
@@ -312,18 +312,70 @@ h1 em{font-style:italic;color:var(--gold);}
 <script>
 /* ─── DATA ─── */
 const QUESTIONS = [
-  {q:"¿Cuándo acabó la II Guerra Mundial?",correct:"En 1945",wrong:["En 1939","En 1918","En 1950"]},
-  {q:"¿Cuál era el apellido de la reina Isabel II de Inglaterra?",correct:"Windsor",wrong:["Tudor","Hannover","Plantagenet"]},
-  {q:"¿En qué año se aprobó la actual Constitución española?",correct:"En 1978",wrong:["En 1931","En 1969","En 1982"]},
-  {q:"¿Qué día es la fiesta de la Hispanidad?",correct:"El 12 de octubre",wrong:["El 6 de diciembre","El 23 de abril","El 1 de mayo"]},
-  {q:"¿Cuál fue el primer presidente democrático de España tras la dictadura franquista?",correct:"Adolfo Suárez",wrong:["Felipe González","Leopoldo Calvo-Sotelo","Manuel Fraga"]},
-  {q:"¿En qué año murió Freddie Mercury?",correct:"En 1991",wrong:["En 1984","En 1997","En 2001"]},
-  {q:"¿Qué día es la fiesta nacional de Estados Unidos?",correct:"El 4 de julio",wrong:["El 4 de noviembre","El 14 de julio","El 1 de enero"]},
-  {q:"¿Quién inventó la bombilla?",correct:"Thomas Edison",wrong:["Nikola Tesla","Alexander Graham Bell","Benjamin Franklin"]},
-  {q:"¿En qué país se usó la primera bomba atómica?",correct:"En Japón (Hiroshima)",wrong:["En Alemania","En Corea","En China"]},
-  {q:"¿Cuándo empezó la Primera Guerra Mundial?",correct:"En 1914",wrong:["En 1905","En 1918","En 1939"]}
+  {question:"¿Qué hecho marca el inicio de la Edad Contemporánea en España?",answers:["La llegada de los romanos","La guerra de la Independencia y la Constitución de 1812","La Guerra Civil","La muerte de Franco"],correct:1},
+  {question:"¿En qué año comenzó la Guerra de la Independencia?",answers:["1814","1808","1833","1874"],correct:1},
+  {question:"¿Qué ocurrió como consecuencia de la Guerra de la Independencia?",answers:["España ganó nuevos territorios","Se creó la Unión Europea","Se independizaron muchas colonias americanas","Se instauró la democracia"],correct:2},
+  {question:"¿Qué tipo de economía predominaba en España al inicio del siglo XIX?",answers:["Industrial","Capitalista avanzada","De subsistencia","Tecnológica"],correct:2},
+  {question:"¿Qué sector económico fue el más importante en el siglo XIX?",answers:["Sector terciario","Sector primario","Sector tecnológico","Sector financiero"],correct:1},
+  {question:"¿Qué clase social representaba la mayoría de la población?",answers:["Alta burguesía","Clase media","Campesinado","Nobleza"],correct:2},
+  {question:"¿Qué ocurrió en 1931 en España?",answers:["Comenzó la dictadura de Franco","Se proclamó la Segunda República","Terminó la Guerra Civil","Se aprobó la Constitución de 1978"],correct:1},
+  {question:"¿Qué reforma importante se intentó durante la Segunda República?",answers:["Eliminación de impuestos","Reparto de tierras","Creación del euro","Nacionalización de bancos"],correct:1},
+  {question:"¿Cuándo comenzó la Guerra Civil española?",answers:["1923","1931","1936","1939"],correct:2},
+  {question:"¿Qué bando ganó la Guerra Civil?",answers:["Republicanos","Monárquicos","Franquistas","Anarquistas"],correct:2},
+  {question:"¿Qué caracterizó la dictadura de Franco?",answers:["Libertad de expresión","Elecciones libres","Represión y ausencia de libertades","Democracia parlamentaria"],correct:2},
+  {question:"¿Qué ocurrió tras la muerte de Franco en 1975?",answers:["Se inició la Edad Media","Se proclamó la Segunda República","Comenzó la Transición a la democracia","España salió de Europa"],correct:2},
+  {question:"¿Qué establece la Constitución de 1978?",answers:["Dictadura","Monarquía absoluta","Monarquía parlamentaria con división de poderes","Sistema comunista"],correct:2},
+  {question:"¿Qué organización integró España en 1986?",answers:["ONU","OTAN","Comunidad Económica Europea","FMI"],correct:2},
+  {question:"¿Qué problema importante aparece en la España reciente?",answers:["Invasiones romanas","Terrorismo (ETA)","Guerras mundiales en España","Colonización de América"],correct:1},
+  {question:"¿Qué rey reinó al inicio del siglo XX?",answers:["Alfonso XII","Alfonso XIII","Fernando VII","Juan Carlos I"],correct:1},
+  {question:"¿Qué problema ocurrió durante su reinado?",answers:["Descubrimiento de América","Pérdida de colonias","Entrada en la UE","Guerra con Italia"],correct:1},
+  {question:"¿Quién dio el golpe de Estado en 1923?",answers:["Franco","Suárez","Primo de Rivera","González"],correct:2},
+  {question:"¿Qué caracterizó la Segunda República?",answers:["Eliminó derechos","Igualdad de derechos","Dictadura","Sin reformas"],correct:1},
+  {question:"¿Qué pasó con la religión en la República?",answers:["Era obligatoria","Fue eliminada completamente","Dejó de ser oficial","Tuvo más poder"],correct:2},
+  {question:"¿Consecuencia de la Guerra Civil?",answers:["Riqueza","Unidad","Muchos muertos y exiliados","Expansión"],correct:2},
+  {question:"¿Qué pasó en los años 60?",answers:["Guerra","Crisis económica","Desarrollo económico","Colonización"],correct:2},
+  {question:"¿Quién impulsó la democracia?",answers:["Felipe VI","Alfonso XIII","Juan Carlos I","Fernando VII"],correct:2},
+  {question:"Primer presidente de la Transición",answers:["Pedro Sánchez","José María Aznar","Adolfo Suárez","Mariano Rajoy"],correct:2},
+  {question:"¿Qué ocurrió en 1977?",answers:["Golpe de Estado","Elecciones democráticas","Fin del franquismo","Entrada en la UE"],correct:1},
+  {question:"Sistema actual de España",answers:["Dictadura","Monarquía absoluta","Monarquía parlamentaria","República federal"],correct:2},
+  {question:"Grupo terrorista en España",answers:["ISIS","ETA","IRA","OTAN"],correct:1},
+  {question:"¿Qué pasó el 11-M?",answers:["Golpe de Estado","Atentado en Madrid","Fin de ETA","Entrada del euro"],correct:1},
+  {question:"Pintor destacado del siglo XIX",answers:["Picasso","Dalí","Goya","Velázquez"],correct:2},
+  {question:"Realismo significa…",answers:["Sueños","Vida real","Geometría","Colores"],correct:1},
+  {question:"Pintor del impresionismo",answers:["Picasso","Dalí","Sorolla","Miró"],correct:2},
+  {question:"Cubismo",answers:["Naturaleza","Figuras geométricas","Religión","Oscuridad"],correct:1},
+  {question:"Surrealismo",answers:["Realidad","Sueños","Historia","Política"],correct:1},
+  {question:"Arquitecto modernista",answers:["Calatrava","Gaudí","Gehry","Moneo"],correct:1},
+  {question:"Modernismo",answers:["Líneas rectas","Naturaleza y curvas","Solo hierro","Diseño simple"],correct:1},
+  {question:"Racionalismo",answers:["Mucha decoración","Simplicidad útil","Inspiración en animales","Mucho color"],correct:1},
+  {question:"Generación del 98",answers:["Fiestas populares","Problemas de España","Ciencia","Deportes"],correct:1},
+  {question:"Generación del 27",answers:["Lenguaje simple","Mezcla tradición y modernidad","Solo novelas","Sin metáforas"],correct:1},
+  {question:"Idioma oficial de España",answers:["Catalán","Euskera","Castellano","Gallego"],correct:2},
+  {question:"Lenguas cooficiales",answers:["Solo inglés","Gallego, euskera, catalán, valenciano y aranés","Francés y alemán","Latín y griego"],correct:1},
+  {question:"Flamenco",answers:["Un idioma","Una arquitectura","Arte y música","Un partido político"],correct:2},
+  {question:"Cliente del arte en el siglo XIX",answers:["Campesinos","Burguesía","Obreros","Clero"],correct:1},
+  {question:"¿Quién invadió España?",answers:["Alemania","Francia","Italia","Inglaterra"],correct:1},
+  {question:"¿Qué quería Napoleón?",answers:["Ayudar a España","Controlar España","Construir ciudades","Viajar por Europa"],correct:1},
+  {question:"Reina tras Fernando VII",answers:["Isabel II","Juan Carlos I","Felipe VI","Alfonso XIII"],correct:0},
+  {question:"Transporte importante en el siglo XIX",answers:["Avión","Barco","Tren","Bicicleta"],correct:2},
+  {question:"La industria se desarrolló en…",answers:["El campo","Las playas","Cataluña y País Vasco","África"],correct:2},
+  {question:"Trabajadores de las fábricas",answers:["Reyes","Nobleza","Obreros","Sacerdotes"],correct:2},
+  {question:"¿Qué pasó en 1936?",answers:["Se proclamó la República","Empezó la Guerra Civil","Terminó la dictadura","Se aprobó la Constitución"],correct:1},
+  {question:"Ciudad importante en la Guerra Civil",answers:["Sevilla","Madrid","Valencia","Bilbao"],correct:1},
+  {question:"Después de la guerra llegó…",answers:["La democracia","La dictadura de Franco","La Unión Europea","Nuevas elecciones"],correct:1},
+  {question:"En la dictadura NO se podía…",answers:["Comer","Estudiar","Opinar libremente","Viajar"],correct:2},
+  {question:"Tras 1975 empezó…",answers:["Otra guerra","La democracia poco a poco","La Edad Media","Nada cambió"],correct:1},
+  {question:"Democracia significa…",answers:["Que manda un rey","Que manda una persona","Que el pueblo decide","Que no hay leyes"],correct:2},
+  {question:"La Constitución es…",answers:["Un cuento","Las normas del país","Una revista","Un mapa"],correct:1},
+  {question:"Goya fue…",answers:["Un rey","Un pintor","Un médico","Un actor"],correct:1},
+  {question:"El realismo pinta…",answers:["Sueños","La realidad","Experimentos","Juegos"],correct:1},
+  {question:"Sorolla pintaba…",answers:["Guerras","Playa y luz","Política","Animales"],correct:1},
+  {question:"El surrealismo pinta…",answers:["La realidad exacta","Sueños y cosas raras","Solo deportes","Solo casas"],correct:1},
+  {question:"La Sagrada Familia la hizo…",answers:["Picasso","Gaudí","Dalí","Cervantes"],correct:1},
+  {question:"Idioma que se habla en toda España",answers:["Inglés","Francés","Español","Alemán"],correct:2},
+  {question:"El flamenco es…",answers:["Un deporte","Un idioma","Música y baile","Una comida"],correct:2}
 ];
-const TIME_PER_Q = 30;
+const TIME_PER_Q = 15;
 const LS_KEY = 'quiz_ranking_v2';
 
 /* ─── STATE ─── */
@@ -407,7 +459,7 @@ function renderRankList(containerId, highlightName) {
     <div class="rank-item${e.name===highlightName?' me':''}">
       <span class="rank-pos ${posClass(i)}">${i+1}</span>
       <span class="rank-name">${esc(e.name)}</span>
-      <span class="rank-score">${e.score}/10</span>
+      <span class="rank-score">${e.score}/${e.total||QUESTIONS.length}</span>
       <span class="rank-meta">${formatTime(e.time)}</span>
     </div>
   `).join('');
@@ -456,7 +508,8 @@ function formatTime(ms){
 function renderQuestion() {
   answered = false;
   const q = QUESTIONS[current];
-  shuffled = shuffle([q.correct,...q.wrong]);
+  const pool = q.answers.map((text, idx) => ({text, isCorrect: idx === q.correct}));
+  shuffled = shuffle(pool);
   const pct = (current/QUESTIONS.length)*100;
   const num = String(current+1).padStart(2,'0');
 
@@ -464,13 +517,13 @@ function renderQuestion() {
   document.getElementById('score-pill').textContent = `✦ ${score} aciertos`;
   document.getElementById('progress-fill').style.width = pct+'%';
   document.getElementById('q-number').textContent = num;
-  document.getElementById('q-text').textContent = q.q;
+  document.getElementById('q-text').textContent = q.question;
   document.getElementById('feedback').className = 'feedback';
   document.getElementById('next-btn').style.display = 'none';
 
   const grid = document.getElementById('answers-grid');
   grid.innerHTML = shuffled.map((a,i)=>`
-    <button class="answer-btn" id="ab${i}" onclick="handleAnswer(this,'${a.replace(/'/g,"\\'")}')">${esc(a)}</button>
+    <button class="answer-btn" id="ab${i}" onclick="handleAnswer(this,${i})">${esc(a.text)}</button>
   `).join('');
 
   startTimer();
@@ -503,35 +556,36 @@ function onTimeout() {
   if(answered) return;
   answered = true;
   playTone('timeout');
-  const correct = QUESTIONS[current].correct;
-  document.querySelectorAll('.answer-btn').forEach(b=>{
+  const correctText = QUESTIONS[current].answers[QUESTIONS[current].correct];
+  document.querySelectorAll('.answer-btn').forEach((b,i)=>{
     b.disabled=true;
-    if(b.textContent.trim()===correct) b.classList.add('reveal');
+    if(shuffled[i] && shuffled[i].isCorrect) b.classList.add('reveal');
   });
   const fb=document.getElementById('feedback');
   fb.className='feedback timeout';
-  fb.textContent=`⏱ ¡Tiempo! La respuesta era: ${correct}`;
+  fb.textContent=`⏱ ¡Tiempo! La respuesta era: ${correctText}`;
   document.getElementById('next-btn').style.display='block';
   document.getElementById('next-btn').textContent = current+1<QUESTIONS.length ? 'Siguiente →' : 'Ver resultados →';
 }
 
-function handleAnswer(btn, selected) {
+function handleAnswer(btn, idx) {
   if(answered) return;
   answered=true;
   clearInterval(timerInterval);
-  const correct = QUESTIONS[current].correct;
-  const isOk = selected===correct;
+  const selected = shuffled[idx];
+  const correctText = QUESTIONS[current].answers[QUESTIONS[current].correct];
+  const isOk = selected.isCorrect;
   if(isOk) score++;
   playTone(isOk?'correct':'wrong');
-  document.querySelectorAll('.answer-btn').forEach(b=>{
+  document.querySelectorAll('.answer-btn').forEach((b,i)=>{
     b.disabled=true;
-    if(b.textContent.trim()===correct){ b.classList.add('reveal'); }
+    if(shuffled[i] && shuffled[i].isCorrect) b.classList.add('reveal');
   });
   if(!isOk){ btn.classList.remove('reveal'); btn.classList.add('wrong'); }
   else{ btn.classList.remove('reveal'); btn.classList.add('correct'); }
   const fb=document.getElementById('feedback');
   fb.className='feedback '+(isOk?'correct':'wrong');
-  fb.textContent=isOk?'✓ ¡Correcto! Bien hecho.':'✕ Incorrecto. La respuesta era: '+correct;
+  fb.textContent=isOk?'✓ ¡Correcto! Bien hecho.':'✕ Incorrecto. La respuesta era: '+correctText;
   document.getElementById('next-btn').style.display='block';
   document.getElementById('next-btn').textContent = current+1<QUESTIONS.length ? 'Siguiente →' : 'Ver resultados →';
 }
@@ -546,7 +600,7 @@ function nextQ() {
 function showResults() {
   totalTime = Date.now() - quizStart;
   const pct = Math.round((score/QUESTIONS.length)*100);
-  saveRanking({ name:username, score, pct, time:totalTime, date:new Date().toLocaleDateString('es-ES') });
+  saveRanking({ name:username, score, total:QUESTIONS.length, pct, time:totalTime, date:new Date().toLocaleDateString('es-ES') });
   playTone('finish');
 
   let stars, msg;
