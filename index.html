@@ -268,25 +268,25 @@ h1 em{font-style:italic;color:var(--gold);}
     <div class="box">
       <div class="box-title">Elige modo de juego</div>
       <div class="mode-grid" id="mode-grid">
-        <div class="mode-btn selected" data-mode="easy" onclick="selectMode(this)">
+        <div class="mode-btn selected" data-mode="easy">
           <span class="mode-icon">🟢</span>
           <span class="mode-name">Fácil</span>
           <span class="mode-desc">15 preguntas · 20 seg</span>
           <span class="mode-badge badge-easy">Fácil</span>
         </div>
-        <div class="mode-btn" data-mode="medium" onclick="selectMode(this)">
+        <div class="mode-btn" data-mode="medium">
           <span class="mode-icon">🟡</span>
           <span class="mode-name">Medio</span>
           <span class="mode-desc">30 preguntas · 15 seg</span>
           <span class="mode-badge badge-med">Medio</span>
         </div>
-        <div class="mode-btn" data-mode="hard" onclick="selectMode(this)">
+        <div class="mode-btn" data-mode="hard">
           <span class="mode-icon">🔴</span>
           <span class="mode-name">Difícil</span>
           <span class="mode-desc">61 preguntas · 10 seg</span>
           <span class="mode-badge badge-hard">Difícil</span>
         </div>
-        <div class="mode-btn" data-mode="vs" onclick="selectMode(this)">
+        <div class="mode-btn" data-mode="vs">
           <span class="mode-icon">⚔️</span>
           <span class="mode-name">1 vs 1</span>
           <span class="mode-desc">Pasa palabra local</span>
@@ -298,7 +298,7 @@ h1 em{font-style:italic;color:var(--gold);}
       <div id="solo-setup">
         <div class="box-title" style="margin-top:.5rem">Tu nombre</div>
         <input id="inp-username" class="inp" type="text" maxlength="20" placeholder="Escribe tu nombre…" autocomplete="off">
-        <button class="btn btn-gold" onclick="startSolo()">Comenzar →</button>
+        <button class="btn btn-gold">Comenzar →</button>
       </div>
 
       <!-- 1v1 mode -->
@@ -321,16 +321,16 @@ h1 em{font-style:italic;color:var(--gold);}
           <option value="30">30 preguntas</option>
           <option value="61">Todas (61)</option>
         </select>
-        <button class="btn btn-gold" onclick="startVS()">Comenzar duelo →</button>
+        <button class="btn btn-gold">Comenzar duelo →</button>
       </div>
     </div>
 
     <div class="box" style="margin-top:0">
       <div class="box-title">🏆 Ranking global</div>
       <div class="tabs">
-        <button class="tab active" onclick="switchTab('easy',this)">Fácil</button>
-        <button class="tab" onclick="switchTab('medium',this)">Medio</button>
-        <button class="tab" onclick="switchTab('hard',this)">Difícil</button>
+        <button class="tab active" data-mode="easy">Fácil</button>
+        <button class="tab" data-mode="medium">Medio</button>
+        <button class="tab" data-mode="hard">Difícil</button>
       </div>
       <div class="rank-list" id="rank-preview"><div class="loader">Cargando ranking…</div></div>
     </div>
@@ -353,7 +353,7 @@ h1 em{font-style:italic;color:var(--gold);}
     </div>
     <div class="answers-grid" id="answers-grid"></div>
     <div class="feedback" id="feedback"></div>
-    <button class="next-btn" id="next-btn" onclick="nextQ()">Siguiente →</button>
+    <button class="next-btn" id="next-btn">Siguiente →</button>
   </div>
 
   <!-- ══ 1v1 ══ -->
@@ -371,11 +371,11 @@ h1 em{font-style:italic;color:var(--gold);}
       <div class="buzz-question" id="buzz-question"></div>
       <div class="buzz-label">¿Quién sabe la respuesta? ¡Pulsa tu botón!</div>
       <div class="buzz-grid">
-        <button class="buzz-btn p1" id="buzz-p1" onclick="buzzIn(1)">
+        <button class="buzz-btn p1" id="buzz-p1">
           <span id="buzz-p1-name">J1</span>
           <span class="buzz-key">Tecla Q</span>
         </button>
-        <button class="buzz-btn p2" id="buzz-p2" onclick="buzzIn(2)">
+        <button class="buzz-btn p2" id="buzz-p2">
           <span id="buzz-p2-name">J2</span>
           <span class="buzz-key">Tecla P</span>
         </button>
@@ -390,7 +390,7 @@ h1 em{font-style:italic;color:var(--gold);}
       </div>
       <div class="answers-grid" id="vs-answers-grid"></div>
       <div class="feedback" id="vs-feedback"></div>
-      <button class="next-btn" id="vs-next-btn" onclick="vsNextQ()">Siguiente pregunta →</button>
+      <button class="next-btn" id="vs-next-btn">Siguiente pregunta →</button>
     </div>
 
     <div class="meta-bar" style="margin-top:.5rem">
@@ -411,8 +411,8 @@ h1 em{font-style:italic;color:var(--gold);}
       <div class="divider"></div>
       <p class="results-msg" id="res-msg"></p>
       <div class="results-actions">
-        <button class="btn-outline-sm" onclick="showScreen('screen-ranking')">Ver ranking</button>
-        <button class="btn-outline-sm gold" onclick="goHome()">Jugar de nuevo</button>
+        <button class="btn-outline-sm">Ver ranking</button>
+        <button class="btn-outline-sm gold">Jugar de nuevo</button>
       </div>
     </div>
   </div>
@@ -435,7 +435,7 @@ h1 em{font-style:italic;color:var(--gold);}
         </div>
       </div>
       <div class="results-actions">
-        <button class="btn-outline-sm gold" onclick="goHome()">Volver al inicio</button>
+        <button class="btn-outline-sm gold">Volver al inicio</button>
       </div>
     </div>
   </div>
@@ -444,12 +444,12 @@ h1 em{font-style:italic;color:var(--gold);}
   <div id="screen-ranking" class="screen">
     <div class="ranking-header">
       <h2>Ranking global</h2>
-      <button class="back-btn" onclick="goHome()">← Volver</button>
+      <button class="back-btn">← Volver</button>
     </div>
     <div class="tabs">
-      <button class="tab active" onclick="switchTabFull('easy',this)">Fácil</button>
-      <button class="tab" onclick="switchTabFull('medium',this)">Medio</button>
-      <button class="tab" onclick="switchTabFull('hard',this)">Difícil</button>
+      <button class="tab active" data-mode="easy">Fácil</button>
+      <button class="tab" data-mode="medium">Medio</button>
+      <button class="tab" data-mode="hard">Difícil</button>
     </div>
     <div class="rank-list" id="rank-full"><div class="loader">Cargando…</div></div>
   </div>
@@ -1003,10 +1003,74 @@ function showVSResults(){
 function goHome(){
   clearInterval(timerInterval);
   showScreen('screen-login');
-  window.loadRanking(rankTab,'rank-preview','');
+  // loadRanking may not be ready yet if Firebase is still initialising
+  if(typeof window.loadRanking === 'function'){
+    window.loadRanking(rankTab,'rank-preview','');
+  } else {
+    // retry after Firebase module finishes
+    setTimeout(()=>{
+      if(typeof window.loadRanking === 'function') window.loadRanking(rankTab,'rank-preview','');
+    }, 800);
+  }
 }
 
-/* expose globals */
+/* ═══════════════════════════════════════════
+   BIND ALL STATIC BUTTONS VIA addEventListener
+   (avoids onclick + module scope race condition)
+═══════════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', function(){
+
+  // Results screen
+  const btnVerRanking = document.querySelector('#screen-results .btn-outline-sm:not(.gold)');
+  const btnJugarDeNuevo = document.querySelector('#screen-results .btn-outline-sm.gold');
+  if(btnVerRanking) btnVerRanking.addEventListener('click', function(){
+    showScreen('screen-ranking');
+    if(typeof window.loadRanking==='function') window.loadRanking(rankTabFull,'rank-full',username);
+  });
+  if(btnJugarDeNuevo) btnJugarDeNuevo.addEventListener('click', goHome);
+
+  // VS Results screen
+  const btnVsVolver = document.querySelector('#screen-vs-results .btn-outline-sm.gold');
+  if(btnVsVolver) btnVsVolver.addEventListener('click', goHome);
+
+  // Ranking screen back button
+  const btnBackRanking = document.querySelector('#screen-ranking .back-btn');
+  if(btnBackRanking) btnBackRanking.addEventListener('click', goHome);
+
+  // Ranking tabs (login screen)
+  document.querySelectorAll('#screen-login .tabs .tab').forEach(tab=>{
+    tab.addEventListener('click', function(){ switchTab(this.dataset.mode, this); });
+  });
+
+  // Ranking tabs (full ranking screen)
+  document.querySelectorAll('#screen-ranking .tabs .tab').forEach(tab=>{
+    tab.addEventListener('click', function(){ switchTabFull(this.dataset.mode, this); });
+  });
+
+  // Mode selector buttons
+  document.querySelectorAll('.mode-btn').forEach(btn=>{
+    btn.addEventListener('click', function(){ selectMode(this); });
+  });
+
+  // Start buttons
+  const btnStartSolo = document.querySelector('#solo-setup .btn');
+  if(btnStartSolo) btnStartSolo.addEventListener('click', startSolo);
+
+  const btnStartVS = document.querySelector('#vs-setup .btn');
+  if(btnStartVS) btnStartVS.addEventListener('click', startVS);
+
+  // Next button (quiz)
+  document.getElementById('next-btn').addEventListener('click', nextQ);
+
+  // VS next button
+  document.getElementById('vs-next-btn').addEventListener('click', vsNextQ);
+
+  // Buzz buttons
+  document.getElementById('buzz-p1').addEventListener('click', ()=>buzzIn(1));
+  document.getElementById('buzz-p2').addEventListener('click', ()=>buzzIn(2));
+});
+
+/* expose globals (kept for any remaining inline references) */
 window.selectMode=selectMode;
 window.switchTab=switchTab;
 window.switchTabFull=switchTabFull;
